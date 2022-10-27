@@ -144,6 +144,7 @@ startButton.addEventListener("click", () => {
   minutes = 0;
   //Aqui se esconden los elementos
   controls.classList.add("hide");
+  stopButton.classList.remove("hide");
   startButton.classList.add("hide");
   //Emepezar el tiempo
   interval = setInterval(timeGenerator, 1000);
@@ -152,7 +153,18 @@ startButton.addEventListener("click", () => {
   initializer();
 });
 
-//Inicializa los valores y funciones 
+//Parar el juego
+stopButton.addEventListener(
+  "click",
+  (stopGame = () => {
+    controls.classList.remove("hide");
+    stopButton.classList.add("hide");
+    startButton.classList.remove("hide");
+    clearInterval(interval);
+  })
+);
+
+//Inicia las funciones y valores
 const initializer = () => {
   result.innerText = "";
   winCount = 0;
