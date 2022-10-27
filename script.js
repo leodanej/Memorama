@@ -152,7 +152,7 @@ startButton.addEventListener("click", () => {
   initializer();
 });
 
-//Inicializa los valores y funciones
+//Inicializa los valores y funciones 
 const initializer = () => {
   result.innerText = "";
   winCount = 0;
