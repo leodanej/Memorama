@@ -19,7 +19,7 @@ const items = [
   { name: "Tigre", image: "./imagenes/Tigre.png" },
   { name: "Mono", image: "./imagenes/Mono.png" },
   { name: "Camaleon", image: "./imagenes/Camaleon.png" },
-  { name: "Piraña", image: "./imagenes/Piraña.png" },
+  { name: "Pirana", image: "./imagenes/Pirana.png" },
   { name: "Anaconda", image: "./imagenes/Anaconda.png" },
   { name: "Perezoso", image: "./imagenes/Perezoso.png" },
   { name: "Cacatua", image: "./imagenes/Cacatua.png" },
@@ -110,6 +110,10 @@ const matrixGenerator = (cardValues, size = 4) => {
             //Si coinciden las imagenes se ignorara la proxima vez que los clickes
             firstCard.classList.add("matched");
             secondCard.classList.add("matched");
+            firstCard.style.background = "green"
+            firstCard.style.padding = "8px"
+            secondCard.style.background = "green"
+            secondCard.style.padding = "8px"
             //Con esto hara que ahora sera la primera carta
             firstCard = false;
             //El contador hara que incremente cada vez que coincidan 
@@ -124,11 +128,21 @@ const matrixGenerator = (cardValues, size = 4) => {
             //Si las cartas no coinciden
             //Vuelven a la normalidad
             let [tempFirst, tempSecond] = [firstCard, secondCard];
+            firstCard.style.background = "red"
+            firstCard.style.padding = "8px"
+            secondCard.style.background = "red"
+            secondCard.style.padding = "8px"
+            
             firstCard = false;
             secondCard = false;
             let delay = setTimeout(() => {
               tempFirst.classList.remove("flipped");
               tempSecond.classList.remove("flipped");
+
+              tempFirst.style.background = "white"
+              tempFirst.style.padding = "0px"
+              tempSecond.style.background = "white"
+              tempSecond.style.padding = "0px"
             }, 900);
           }
         }
